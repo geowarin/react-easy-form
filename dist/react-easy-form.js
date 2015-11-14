@@ -406,7 +406,7 @@ var _getNextId = require('./getNextId');
 
 var _getNextId2 = _interopRequireDefault(_getNextId);
 
-isEmpty = function (obj) {
+var isEmpty = function isEmpty(obj) {
   return Object.keys(obj).length === 0;
 };
 
@@ -614,8 +614,7 @@ var TextInput = (function (_React$Component) {
         className: className,
         valueLink: valueLink,
         required: required,
-        type: type
-      });
+        type: type });
     }
   }]);
 

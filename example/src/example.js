@@ -16,25 +16,45 @@ const data = {
 	prod: true
 };
 
+const LabeledInput = (props) => {
+	return (
+		<div className="pure-control-group">
+			<Label value={props.label} position="before">
+				<TextInput {...props}/>
+			</Label>
+		</div>)
+}
+
+const LabeledSelect = (props) => {
+	return (
+		<div className="pure-control-group">
+			<Label value={props.label} position="before">
+				<Select {...props}/>
+			</Label>
+		</div>)
+}
+
+
 var App = React.createClass({
 	render () {
 		return (
 			<div>
-				<Form initialData={data} onSubmit={(data) => console.log(data)}>
-					<Label value="First Name">
-						<TextInput name="firstName" required/>
-					</Label>
-		<TextInput name="email" type="email"/>
+				<Form className="pure-form pure-form-aligned" initialData={data} onSubmit={(data) => console.log(data)}>
+					<fieldset>
+						<LabeledInput label="First Name" name="firstName" required/>
+			<LabeledInput label="E-mail" placeholder="Enter your email" name="email" type="email" required/>
 
-					<Label value="Select one" position="before">
-						<Select name="select" values={values}/>
-					</Label>
-		<Select name="selectMap" values={valuesMap}/>
+						<LabeledSelect label="Select from array" name="select" values={values}/>
+						<LabeledSelect label="Select from object" name="selectMap" values={valuesMap}/>
 
-					<Checkbox name="prod"/>
-					<Checkbox name="monitor"/>
+						<div className="pure-controls">
+							<Label value="Agree" className="pure-checkbox">
+								<Checkbox name="Agree"/>
+							</Label>
 
-					<button type="submit">Submit</button>
+							<button className="pure-button pure-button-primary" type="submit">Submit</button>
+						</div>
+					</fieldset>
 				</Form>
 			</div>
 		);

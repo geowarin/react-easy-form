@@ -23,11 +23,12 @@ class TextInput extends React.Component {
       requestChange: (newValue) => this.context.updateFormData(this.props.name, newValue)
     };
 
-    const {label, required, type} = this.props;
+    const {label, required, type, placeholder} = this.props;
     const {id} = this.state;
     return (
 	<input disabled={this.props.disabled}
 	       id={id}
+	       placeholder={placeholder}
 	       className={this.props.className}
 	       valueLink={valueLink}
 	       required={required}
@@ -39,6 +40,7 @@ class TextInput extends React.Component {
 
 TextInput.propTypes = {
   id: React.PropTypes.string,
+  placeholder: React.PropTypes.string,
   disabled: React.PropTypes.bool,
   name: React.PropTypes.string.isRequired,
   required: React.PropTypes.bool,

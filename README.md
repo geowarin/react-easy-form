@@ -32,6 +32,8 @@ npm install react-easy-form --save
 
 ## Usage
 
+### Simple usage
+
 ```javascript
 var React = require('react');
 var ReactDOM = require('react-dom');
@@ -44,35 +46,112 @@ const valuesMap = {
 	3: 'three'
 };
 
-const data = {
+const initialData = {
 	firstName: 'Jean',
 	select: '2',
 	selectMap: '2',
 	prod: true
 };
 
-var App = React.createClass({
-	render () {
-		return (
-			<div>
-				<Form initialData={data} onSubmit={(data) => console.log(data)}>
-					<TextInput name="firstName" label="Name" required/>
-		<TextInput name="email" label="email" type="email"/>
+const App = () => {
+	return (
+			<Form initialData={initialData} onSubmit={(data) => console.log(data)}>
+				<TextInput name="firstName" required/>
+	<TextInput name="email" type="email" placeholder="Enter your address" required />
+				<TextInput 	label="Country code" name="country" required
+										pattern="[A-Za-z]{3}" title="Three letter country code" />
 
-					<Select name="select" label="numbers" values={values}/>
-		<Select name="selectMap" label="map" values={valuesMap}/>
+				<Label value="Select built with an array" position="before">
+					<Select name="select" values={values}/>
+				</Label>
+				<Label value="Select built with an object (map)" position="after">
+		<Select name="selectMap" values={valuesMap}/>
+				</Label>
 
-					<Checkbox name="check1" label="Check 1"/>
-					<Checkbox name="check2" label="Check 2"/>
+				<Checkbox name="check1" required />
 
-					<button type="submit">Submit</button>
-				</Form>
-			</div>
-		);
-	}
-});
+				<button type="submit">Submit</button>
+			</Form>
+	);
+}
 
 ReactDOM.render(<App />, document.getElementById('app'));
+```
+
+### Example of Styling
+
+The following example uses [Pure forms](http://purecss.io/)
+
+```javascript
+var React = require('react');
+var ReactDOM = require('react-dom');
+const {Form, TextInput, Checkbox, Select, Label} = require('react-easy-form');
+
+const values = ['1', '2', '3'];
+const initialData = {
+	firstName: 'Jean',
+	select: '2',
+	selectMap: '2'
+};
+
+const LabeledInput = (props) => {
+	return (
+		<div className="pure-control-group">
+			<Label value={props.label} position="before">
+				<TextInput {...props}/>
+			</Label>
+		</div>)
+}
+
+const LabeledSelect = (props) => {
+	return (
+		<div className="pure-control-group">
+			<Label value={props.label} position="before">
+				<Select {...props}/>
+			</Label>
+		</div>)
+}
+
+
+const App = () => {
+	return (
+			<Form className="pure-form pure-form-aligned" initialData={initialData} onSubmit={(data) => console.log(data)}>
+				<fieldset>
+					<LabeledInput label="First Name" name="firstName" required/>
+		<LabeledInput label="E-mail" placeholder="Enter your email" name="email" type="email" required/>
+
+					<LabeledInput label="Country code" name="country" required
+												pattern="[A-Za-z]{3}" title="Three letter country code" />
+
+					<LabeledSelect label="Select from array" name="select" values={values}/>
+
+					<div className="pure-controls">
+						<Label className="pure-checkbox">
+							<Checkbox name="agree" title="Accept TOS" required/> Agree
+						</Label>
+
+						<button className="pure-button pure-button-primary" type="submit">Submit</button>
+					</div>
+				</fieldset>
+			</Form>
+		);
+}
+
+ReactDOM.render(<App />, document.getElementById('app'));
+```
+
+### Calling submit programmatically
+
+You can call the submission of the form in javascript.
+This will still trigger validation of the inputs.
+
+```javascript
+<Form ref="myForm">
+</Form>
+
+...
+
+this.refs.myForm.submit()
 ```
 
 ## Development (`src`, `lib` and the build process)

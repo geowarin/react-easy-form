@@ -49,18 +49,18 @@ const valuesMap = {
 const initialData = {
 	firstName: 'Jean',
 	select: '2',
-	selectMap: '2',
-	prod: true
+	selectMap: '2'
 };
 
 const App = () => {
 	return (
-			<Form initialData={initialData} onSubmit={(data) => console.log(data)}>
+			<Form initialData={initialData}
+					onSubmit={(data) => console.log(data)}>
 				<TextInput name="firstName" required/>
 				<TextInput 	name="email" type="email"
-										placeholder="Enter your address" required />
+							placeholder="Enter your address" required />
 				<TextInput 	label="Country code" name="country" required
-										pattern="[A-Za-z]{3}" title="Three letter country code" />
+							pattern="[A-Za-z]{3}" title="Three letter country code" />
 
 				<Label value="Select built with an array" position="before">
 					<Select name="select" values={values}/>
@@ -92,8 +92,7 @@ const {Form, TextInput, Checkbox, Select, Label} = require('react-easy-form');
 const values = ['1', '2', '3'];
 const initialData = {
 	firstName: 'Jean',
-	select: '2',
-	selectMap: '2'
+	select: '2'
 };
 
 const LabeledInput = (props) => {
@@ -102,7 +101,8 @@ const LabeledInput = (props) => {
 			<Label value={props.label} position="before">
 				<TextInput {...props}/>
 			</Label>
-		</div>)
+		</div>
+	)
 }
 
 const LabeledSelect = (props) => {
@@ -111,20 +111,22 @@ const LabeledSelect = (props) => {
 			<Label value={props.label} position="before">
 				<Select {...props}/>
 			</Label>
-		</div>)
+		</div>
+	)
 }
 
 
 const App = () => {
 	return (
-			<Form className="pure-form pure-form-aligned" initialData={initialData} onSubmit={(data) => console.log(data)}>
+			<Form className="pure-form pure-form-aligned" initialData={initialData}
+			onSubmit={(data) => console.log(data)}>
 				<fieldset>
 					<LabeledInput label="First Name" name="firstName" required/>
 					<LabeledInput label="E-mail" placeholder="Enter your email"
-												name="email" type="email" required/>
+									name="email" type="email" required/>
 
 					<LabeledInput label="Country code" name="country" required
-												pattern="[A-Za-z]{3}" title="Three letter country code" />
+									pattern="[A-Za-z]{3}" title="Three letter country code" />
 
 					<LabeledSelect label="Select from array" name="select" values={values}/>
 

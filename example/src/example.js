@@ -12,8 +12,7 @@ const valuesMap = {
 const data = {
 	firstName: 'Jean',
 	select: '2',
-	selectMap: '2',
-	prod: true
+	selectMap: '2'
 };
 
 const LabeledInput = (props) => {
@@ -48,8 +47,8 @@ var App = React.createClass({
 						<LabeledSelect label="Select from object" name="selectMap" values={valuesMap}/>
 
 						<div className="pure-controls">
-							<Label value="Agree" className="pure-checkbox">
-								<Checkbox name="Agree"/>
+							<Label className="pure-checkbox">
+								<Checkbox name="agree"/> Agree
 							</Label>
 
 							<button className="pure-button pure-button-primary" type="submit">Submit</button>

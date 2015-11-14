@@ -42,7 +42,7 @@ class Label extends React.Component {
 
 Label.propTypes = {
   id: React.PropTypes.string,
-  value: React.PropTypes.string.isRequired,
+  value: React.PropTypes.string,
 	position: (props, propName) => {
     if (!/before|after|around/.test(props[propName])) {
       return new Error('Label position must be either before, after or around');

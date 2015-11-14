@@ -43,12 +43,15 @@ var App = React.createClass({
 						<LabeledInput label="First Name" name="firstName" required/>
 			<LabeledInput label="E-mail" placeholder="Enter your email" name="email" type="email" required/>
 
+						<LabeledInput label="Country code" name="country" required
+													pattern="[A-Za-z]{3}" title="Three letter country code" />
+
 						<LabeledSelect label="Select from array" name="select" values={values}/>
 						<LabeledSelect label="Select from object" name="selectMap" values={valuesMap}/>
 
 						<div className="pure-controls">
 							<Label className="pure-checkbox">
-								<Checkbox name="agree"/> Agree
+								<Checkbox name="agree" title="Accept TOS" required/> Agree
 							</Label>
 
 							<button className="pure-button pure-button-primary" type="submit">Submit</button>

@@ -23,13 +23,15 @@ class TextInput extends React.Component {
       requestChange: (newValue) => this.context.updateFormData(this.props.name, newValue)
     };
 
-    const {label, required, type, placeholder} = this.props;
+    const {label, disabled, required, type, placeholder, pattern, title, className} = this.props;
     const {id} = this.state;
     return (
-	<input disabled={this.props.disabled}
+	<input disabled={disabled}
 	       id={id}
+	       title={title}
+	       pattern={pattern}
 	       placeholder={placeholder}
-	       className={this.props.className}
+	       className={className}
 	       valueLink={valueLink}
 	       required={required}
 	       type={type}
@@ -40,6 +42,8 @@ class TextInput extends React.Component {
 
 TextInput.propTypes = {
   id: React.PropTypes.string,
+  title: React.PropTypes.string,
+  pattern: React.PropTypes.string,
   placeholder: React.PropTypes.string,
   disabled: React.PropTypes.bool,
   name: React.PropTypes.string.isRequired,

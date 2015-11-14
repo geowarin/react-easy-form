@@ -40,9 +40,10 @@ class Select extends React.Component {
     }
 
     const {id} = this.state;
+    const {className, disabled} = this.props;
     return (
-	<select className={this.props.classname}
-		disabled={this.props.disabled}
+	<select className={className}
+		disabled={disabled}
 		valueLink={valueLink}
 		id={id}>
 	  {options}

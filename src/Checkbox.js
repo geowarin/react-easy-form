@@ -3,6 +3,13 @@ import getNextId from './getNextId';
 
 class Checkbox extends React.Component {
 
+  constructor(...args) {
+		super(...args);
+		this.state = {
+			id: this.context.labelId || this.props.id || getNextId('checkbox_')
+		}
+	}
+
   componentDidMount() {
     const hasInitialValue = this.context.getFormData(this.props.name) != undefined;
     if (!hasInitialValue) {
@@ -16,7 +23,7 @@ class Checkbox extends React.Component {
       requestChange: (newValue) => this.context.updateFormData(this.props.name, newValue)
     };
 
-    const id = this.context.id || this.props.id;
+    const {id} = this.state;
     return (
 	<input 	className={this.props.className}
 								disabled={this.props.disabled}
@@ -34,11 +41,11 @@ Checkbox.propTypes = {
 };
 
 Checkbox.defaultProps = {
-  disabled: false,
-  id: getNextId('checkbox_')
+  disabled: false
 };
 
 Checkbox.contextTypes = {
+  labelId: React.PropTypes.string,
   updateFormData: React.PropTypes.func,
   getFormData: React.PropTypes.func
 };

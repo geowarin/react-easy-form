@@ -3,6 +3,13 @@ import getNextId from './getNextId';
 
 class TextInput extends React.Component {
 
+  constructor(...args) {
+    super(...args);
+    this.state = {
+      id: this.context.labelId || this.props.id || getNextId('select_')
+    }
+  }
+
   componentDidMount() {
     const hasInitialValue = this.context.getFormData(this.props.name) != undefined;
     if (!hasInitialValue) {
@@ -17,7 +24,7 @@ class TextInput extends React.Component {
     };
 
     const {label, required, type} = this.props;
-    const id = this.context.id || this.props.id;
+    const {id} = this.state;
     return (
 	<input disabled={this.props.disabled}
 	       id={id}
@@ -45,12 +52,11 @@ TextInput.propTypes = {
 TextInput.defaultProps = {
   disabled: false,
   required: false,
-  type: 'text',
-  id: getNextId('input_')
+  type: 'text'
 };
 
 TextInput.contextTypes = {
-  id: React.PropTypes.string,
+  labelId: React.PropTypes.string,
   updateFormData: React.PropTypes.func,
   getFormData: React.PropTypes.func
 };

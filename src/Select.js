@@ -1,11 +1,19 @@
 import React from 'react';
 import getNextId from './getNextId';
+import isEmpty from 'lodash.isempty';
 
 class Select extends React.Component {
 
+  constructor(...args) {
+    super(...args);
+    this.state = {
+      id: this.context.labelId || this.props.id || getNextId('select_')
+    }
+  }
+
   componentDidMount() {
     const hasInitialValue = this.context.getFormData(this.props.name) != undefined;
-    if (this.props.values.length > 0 && !hasInitialValue) {
+    if (!isEmpty(this.props.values) && !hasInitialValue) {
       this.context.updateFormData(this.props.name, this.props.values[0])
     }
   }
@@ -31,7 +39,7 @@ class Select extends React.Component {
 			}
     }
 
-    const id = this.context.id || this.props.id || this.state.id;
+    const {id} = this.state;
     return (
 	<select className={this.props.classname}
 		disabled={this.props.disabled}
@@ -55,12 +63,11 @@ Select.propTypes = {
 
 Select.defaultProps = {
 	disabled: false,
-	label: null,
-  id: getNextId('select_')
+	label: null
 };
 
 Select.contextTypes = {
-	id: React.PropTypes.string,
+	labelId: React.PropTypes.string,
 	updateFormData: React.PropTypes.func,
 	getFormData: React.PropTypes.func
 };

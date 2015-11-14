@@ -1,6 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-const {Form, TextInput, Checkbox, Select} = require('react-easy-form');
+const {Form, TextInput, Checkbox, Select, Label} = require('react-easy-form');
 
 const values = ['1', '2', '3'];
 const valuesMap = {
@@ -21,14 +21,18 @@ var App = React.createClass({
 		return (
 			<div>
 				<Form initialData={data} onSubmit={(data) => console.log(data)}>
-					<TextInput name="firstName" label="Name" required/>
-		<TextInput name="email" label="email" type="email"/>
+					<Label value="First Name">
+						<TextInput name="firstName" required/>
+					</Label>
+		<TextInput name="email" type="email"/>
 
-					<Select name="select" label="numbers" values={values}/>
-		<Select name="selectMap" label="map" values={valuesMap}/>
+					<Label value="Select one" position="before">
+						<Select name="select" values={values}/>
+					</Label>
+		<Select name="selectMap" values={valuesMap}/>
 
-					<Checkbox name="prod" label="Production"/>
-					<Checkbox name="monitor" label="Monitoring"/>
+					<Checkbox name="prod"/>
+					<Checkbox name="monitor"/>
 
 					<button type="submit">Submit</button>
 				</Form>

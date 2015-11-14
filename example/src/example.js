@@ -21,8 +21,8 @@ const LabeledInput = (props) => {
 			<Label value={props.label} position="before">
 				<TextInput {...props}/>
 			</Label>
-		</div>)
-}
+		</div>);
+};
 
 const LabeledSelect = (props) => {
 	return (
@@ -30,8 +30,8 @@ const LabeledSelect = (props) => {
 			<Label value={props.label} position="before">
 				<Select {...props}/>
 			</Label>
-		</div>)
-}
+		</div>);
+};
 
 const App = () => {
 	return (
@@ -56,6 +56,6 @@ const App = () => {
 			</fieldset>
 		</Form>
 	);
-}
+};
 
 ReactDOM.render(<App />, document.getElementById('app'));

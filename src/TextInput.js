@@ -7,7 +7,7 @@ class TextInput extends React.Component {
     super(...args);
     this.state = {
       id: this.context.labelId || this.props.id || getNextId('select_')
-    }
+    };
   }
 
   componentDidMount() {
@@ -23,7 +23,7 @@ class TextInput extends React.Component {
       requestChange: (newValue) => this.context.updateFormData(this.props.name, newValue)
     };
 
-    const {label, disabled, required, type, placeholder, pattern, title, className} = this.props;
+    const {disabled, required, type, placeholder, pattern, title, className} = this.props;
     const {id} = this.state;
     return (
 	<input disabled={disabled}
@@ -41,13 +41,14 @@ class TextInput extends React.Component {
 }
 
 TextInput.propTypes = {
+  className: React.PropTypes.string,
+  disabled: React.PropTypes.bool,
   id: React.PropTypes.string,
-  title: React.PropTypes.string,
+  name: React.PropTypes.string.isRequired,
   pattern: React.PropTypes.string,
   placeholder: React.PropTypes.string,
-  disabled: React.PropTypes.bool,
-  name: React.PropTypes.string.isRequired,
   required: React.PropTypes.bool,
+  title: React.PropTypes.string,
   type: (props, propName) => {
     if (!/email|text|url|password/.test(props[propName])) {
       return new Error('TextInput type must be one of email, text, url or password.');

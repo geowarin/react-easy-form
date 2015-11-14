@@ -8,14 +8,14 @@ class Form extends React.Component {
     this.onSubmit = this._onSubmit.bind(this);
     this.state = {
       formData: this.props.initialData
-    }
+    };
   }
 
   getChildContext() {
     return {
       updateFormData: this.updateFormData.bind(this),
       getFormData: this.getFormData.bind(this)
-    }
+    };
   }
 
   updateFormData(inputName, value) {
@@ -23,7 +23,7 @@ class Form extends React.Component {
     formData[inputName] = value;
     this.setState({
       formData
-    })
+    });
   }
 
   // http://stackoverflow.com/questions/18774821/submit-event-does-not-fire-if-submit-initiated-programatically
@@ -56,6 +56,8 @@ class Form extends React.Component {
 }
 
 Form.propTypes = {
+  children: React.PropTypes.node,
+  className: React.PropTypes.string,
   initialData: React.PropTypes.object,
   onSubmit: React.PropTypes.func
 };

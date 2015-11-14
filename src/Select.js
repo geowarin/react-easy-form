@@ -8,13 +8,13 @@ class Select extends React.Component {
     super(...args);
     this.state = {
       id: this.context.labelId || this.props.id || getNextId('select_')
-    }
+    };
   }
 
   componentDidMount() {
     const hasInitialValue = this.context.getFormData(this.props.name) != undefined;
     if (!isEmpty(this.props.values) && !hasInitialValue) {
-      this.context.updateFormData(this.props.name, this.props.values[0])
+      this.context.updateFormData(this.props.name, this.props.values[0]);
     }
   }
 
@@ -28,14 +28,14 @@ class Select extends React.Component {
     let options = null;
     if (Array.isArray(values)) {
       options = values.map((value, index) => {
-	return (<option key={index} value={value}>{value}</option>)
+	return (<option key={index} value={value}>{value}</option>);
       });
     } else {
 			options = [];
 			const keys = Object.keys(values);
 			for (let key of keys) {
 				const value = values[key];
-				options.push(<option key={key} value={key}>{value}</option>)
+				options.push(<option key={key} value={key}>{value}</option>);
 			}
     }
 
@@ -53,18 +53,18 @@ class Select extends React.Component {
 };
 
 Select.propTypes = {
+  className: React.PropTypes.string,
+  disabled: React.PropTypes.bool,
   id: React.PropTypes.string,
+  name: React.PropTypes.string.isRequired,
 	values: React.PropTypes.oneOfType([
 		React.PropTypes.array.isRequired,
 		React.PropTypes.object.isRequired
-	]),
-	name: React.PropTypes.string.isRequired,
-	disabled: React.PropTypes.bool
+	])
 };
 
 Select.defaultProps = {
-	disabled: false,
-	label: null
+	disabled: false
 };
 
 Select.contextTypes = {

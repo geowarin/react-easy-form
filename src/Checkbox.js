@@ -7,7 +7,7 @@ class Checkbox extends React.Component {
 		super(...args);
 		this.state = {
 			id: this.context.labelId || this.props.id || getNextId('checkbox_')
-		}
+		};
 	}
 
   componentDidMount() {
@@ -38,11 +38,12 @@ class Checkbox extends React.Component {
 };
 
 Checkbox.propTypes = {
-  id: React.PropTypes.string,
-  title: React.PropTypes.string,
-  name: React.PropTypes.string.isRequired,
+  className: React.PropTypes.string,
   disabled: React.PropTypes.bool,
-  required: React.PropTypes.bool
+  id: React.PropTypes.string,
+  name: React.PropTypes.string.isRequired,
+  required: React.PropTypes.bool,
+  title: React.PropTypes.string
 };
 
 Checkbox.defaultProps = {

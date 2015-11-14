@@ -10,4 +10,4 @@ export {
   Checkbox,
   Select,
   Label
-}
+};

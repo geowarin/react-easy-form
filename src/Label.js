@@ -21,22 +21,25 @@ class Label extends React.Component {
     const {value, className} = this.props;
 		if (this.props.position === 'before') {
 			return (
-			<div>
-				<label className={className} htmlFor={id}>{value}</label>
-				{this.props.children}
-			</div>
-		);
+				<div>
+					<label className={className} htmlFor={id}>{value}</label>
+					{this.props.children}
+				</div>
+			);
 		}
 		if (this.props.position === 'after') {
-			return (<div>
-				{this.props.children}
-				<label className={className} htmlFor={id}>{value}</label>
-			</div>);
+			return (
+				<div>
+					{this.props.children}
+					<label className={className} htmlFor={id}>{value}</label>
+				</div>
+			);
 		}
 		return (
 			<label className={className}>{value}
 				{this.props.children}
-			</label>);
+			</label>
+		);
   }
 };
 

@@ -15,7 +15,6 @@ var taskConfig = {
 	component: {
 		name: 'ReactEasyForm',
 		dependencies: [
-			'classnames',
 			'react'
 		],
 		lib: 'lib'

@@ -26,17 +26,16 @@ class TextInput extends React.Component {
     const {disabled, required, type, placeholder, pattern, title, className} = this.props;
     const {id} = this.state;
     return (
-	<input disabled={disabled}
-	       id={id}
-	       title={title}
-	       pattern={pattern}
-	       placeholder={placeholder}
-	       className={className}
-	       valueLink={valueLink}
-	       required={required}
-	       type={type}
-	/>
-      );
+       <input disabled={disabled}
+              id={id}
+    	        title={title}
+              pattern={pattern}
+              placeholder={placeholder}
+              className={className}
+              valueLink={valueLink}
+              required={required}
+              type={type} />
+         );
   }
 }
 

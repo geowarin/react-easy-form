@@ -54,8 +54,8 @@ const initialData = {
 
 const App = () => {
 	return (
-			<Form initialData={initialData}
-					onSubmit={(data) => console.log(data)}>
+			<Form initialData={initialData} onSubmit={(data) => console.log(data)}>
+
 				<TextInput name="firstName" required/>
 				<TextInput 	name="email" type="email"
 							placeholder="Enter your address" required />
@@ -119,14 +119,15 @@ const LabeledSelect = (props) => {
 const App = () => {
 	return (
 			<Form className="pure-form pure-form-aligned" initialData={initialData}
-			onSubmit={(data) => console.log(data)}>
+					onSubmit={(data) => console.log(data)}>
+
 				<fieldset>
 					<LabeledInput label="First Name" name="firstName" required/>
 					<LabeledInput label="E-mail" placeholder="Enter your email"
-									name="email" type="email" required/>
+								name="email" type="email" required/>
 
 					<LabeledInput label="Country code" name="country" required
-									pattern="[A-Za-z]{3}" title="Three letter country code" />
+								pattern="[A-Za-z]{3}" title="Three letter country code" />
 
 					<LabeledSelect label="Select from array" name="select" values={values}/>
 

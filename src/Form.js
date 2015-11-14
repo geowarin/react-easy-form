@@ -49,7 +49,7 @@ class Form extends React.Component {
   render() {
     return (
       <form ref="form" className={this.props.className} onSubmit={this.onSubmit}>
-	{this.props.children}
+	       {this.props.children}
       </form>
     );
   }

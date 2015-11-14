@@ -26,14 +26,15 @@ class Checkbox extends React.Component {
     const {id} = this.state;
     const {className, disabled, required, title} = this.props;
     return (
-	<input 	className={className}
+	     <input 	className={className}
 								disabled={disabled}
-		id={id}
-		type="checkbox"
-		title={title}
-		required={required}
-		checkedLink={valueLink}
-	/>);
+            		id={id}
+            		type="checkbox"
+            		title={title}
+            		required={required}
+            		checkedLink={valueLink}
+            	/>
+          );
   }
 };
 

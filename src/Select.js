@@ -31,7 +31,7 @@ class Select extends React.Component {
     let options = null;
     if (Array.isArray(values)) {
       options = values.map((value, index) => {
-	return (<option key={index} value={value}>{value}</option>);
+	       return (<option key={index} value={value}>{value}</option>);
       });
     } else {
 			options = [];
@@ -45,12 +45,12 @@ class Select extends React.Component {
     const {id} = this.state;
     const {className, disabled} = this.props;
     return (
-	<select className={className}
-		disabled={disabled}
-		valueLink={valueLink}
-		id={id}>
-	  {options}
-	</select>
+      	<select className={className}
+            		disabled={disabled}
+            		valueLink={valueLink}
+            		id={id}>
+                {options}
+      	</select>
     );
   }
 };

@@ -570,8 +570,7 @@ var TextInput = (function (_React$Component) {
         className: className,
         valueLink: valueLink,
         required: required,
-        type: type
-      });
+        type: type });
     }
   }]);
 

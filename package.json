@@ -13,8 +13,7 @@
     "url": "https://github.com/geowarin/react-easy-form/issues"
   },
   "dependencies": {
-    "classnames": "^2.1.2",
-    "lodash.isempty": "^3.0.4"
+    "classnames": "^2.1.2"
   },
   "devDependencies": {
     "babel-eslint": "^4.1.3",

@@ -1,6 +1,9 @@
 import React from 'react';
 import getNextId from './getNextId';
-import isEmpty from 'lodash.isempty';
+
+const isEmpty = (obj) => {
+  return Object.keys(obj).length === 0;
+}
 
 class Select extends React.Component {
 

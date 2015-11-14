@@ -57,15 +57,17 @@ const App = () => {
 	return (
 			<Form initialData={initialData} onSubmit={(data) => console.log(data)}>
 				<TextInput name="firstName" required/>
-	<TextInput name="email" type="email" placeholder="Enter your address" required />
+				<TextInput 	name="email" type="email"
+										placeholder="Enter your address" required />
 				<TextInput 	label="Country code" name="country" required
 										pattern="[A-Za-z]{3}" title="Three letter country code" />
 
 				<Label value="Select built with an array" position="before">
 					<Select name="select" values={values}/>
 				</Label>
+
 				<Label value="Select built with an object (map)" position="after">
-		<Select name="selectMap" values={valuesMap}/>
+					<Select name="selectMap" values={valuesMap}/>
 				</Label>
 
 				<Checkbox name="check1" required />
@@ -118,7 +120,8 @@ const App = () => {
 			<Form className="pure-form pure-form-aligned" initialData={initialData} onSubmit={(data) => console.log(data)}>
 				<fieldset>
 					<LabeledInput label="First Name" name="firstName" required/>
-		<LabeledInput label="E-mail" placeholder="Enter your email" name="email" type="email" required/>
+					<LabeledInput label="E-mail" placeholder="Enter your email"
+												name="email" type="email" required/>
 
 					<LabeledInput label="Country code" name="country" required
 												pattern="[A-Za-z]{3}" title="Three letter country code" />

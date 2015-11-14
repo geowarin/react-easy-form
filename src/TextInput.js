@@ -10,13 +10,6 @@ class TextInput extends React.Component {
     }
   }
 
-  constructor(...args) {
-    super(...args);
-    this.state = {
-      id: getNextId('input_')
-    };
-  }
-
   render() {
     const valueLink = {
       value: this.context.getFormData(this.props.name),
@@ -24,24 +17,21 @@ class TextInput extends React.Component {
     };
 
     const {label, required, type} = this.props;
-    const labelElement = label ? <label htmlFor={this.state.id}>{label}</label> : null;
+    const id = this.context.id || this.props.id;
     return (
-      <div>
-	{labelElement}
 	<input disabled={this.props.disabled}
-	       id={this.state.id}
-	       type="text"
+	       id={id}
 	       className={this.props.className}
 	       valueLink={valueLink}
 	       required={required}
 	       type={type}
 	/>
-      </div>);
+      );
   }
 }
 
 TextInput.propTypes = {
-  label: React.PropTypes.string,
+  id: React.PropTypes.string,
   disabled: React.PropTypes.bool,
   name: React.PropTypes.string.isRequired,
   required: React.PropTypes.bool,
@@ -55,10 +45,12 @@ TextInput.propTypes = {
 TextInput.defaultProps = {
   disabled: false,
   required: false,
-  type: 'text'
+  type: 'text',
+  id: getNextId('input_')
 };
 
 TextInput.contextTypes = {
+  id: React.PropTypes.string,
   updateFormData: React.PropTypes.func,
   getFormData: React.PropTypes.func
 };

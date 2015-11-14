@@ -3,13 +3,6 @@ import getNextId from './getNextId';
 
 class Select extends React.Component {
 
-  constructor(...args) {
-    super(...args);
-    this.state = {
-      id: getNextId('select_')
-    };
-  }
-
   componentDidMount() {
     const hasInitialValue = this.context.getFormData(this.props.name) != undefined;
     if (this.props.values.length > 0 && !hasInitialValue) {
@@ -38,38 +31,36 @@ class Select extends React.Component {
 			}
     }
 
-    const labelElement = this.props.label ? <label>{this.props.label}</label> : null;
+    const id = this.context.id || this.props.id || this.state.id;
     return (
-      <div>
-	{labelElement}
 	<select className={this.props.classname}
 		disabled={this.props.disabled}
 		valueLink={valueLink}
-		id={this.state.id}>
+		id={id}>
 	  {options}
 	</select>
-      </div>
     );
   }
 };
 
 Select.propTypes = {
+  id: React.PropTypes.string,
 	values: React.PropTypes.oneOfType([
 		React.PropTypes.array.isRequired,
 		React.PropTypes.object.isRequired
 	]),
 	name: React.PropTypes.string.isRequired,
-	disabled: React.PropTypes.bool,
-	label: React.PropTypes.string
+	disabled: React.PropTypes.bool
 };
 
 Select.defaultProps = {
 	disabled: false,
-	label: null
+	label: null,
+  id: getNextId('select_')
 };
 
 Select.contextTypes = {
-	elementsInRow: React.PropTypes.number,
+	id: React.PropTypes.string,
 	updateFormData: React.PropTypes.func,
 	getFormData: React.PropTypes.func
 };

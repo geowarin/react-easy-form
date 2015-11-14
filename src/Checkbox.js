@@ -10,42 +10,32 @@ class Checkbox extends React.Component {
     }
   }
 
-  constructor(...args) {
-    super(...args);
-    this.state = {
-      id: getNextId('checkbox_')
-    };
-  }
-
   render() {
     const valueLink = {
       value: this.context.getFormData(this.props.name),
       requestChange: (newValue) => this.context.updateFormData(this.props.name, newValue)
     };
 
-    const {label} = this.props;
-    const labelElement = label ? <label htmlFor={this.state.id}>{label}</label> : null;
+    const id = this.context.id || this.props.id;
     return (
-      <div>
-				{labelElement}
 	<input 	className={this.props.className}
 								disabled={this.props.disabled}
-		id={this.state.id}
+		id={id}
 		type="checkbox"
 		checkedLink={valueLink}
-	/>
-      </div>);
+	/>);
   }
 };
 
 Checkbox.propTypes = {
+  id: React.PropTypes.string,
   name: React.PropTypes.string.isRequired,
-  label: React.PropTypes.string,
   disabled: React.PropTypes.bool
 };
 
 Checkbox.defaultProps = {
-  disabled: false
+  disabled: false,
+  id: getNextId('checkbox_')
 };
 
 Checkbox.contextTypes = {

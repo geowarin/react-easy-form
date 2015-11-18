@@ -18784,7 +18784,12 @@ if ("production" !== 'production') {
 }
 
 module.exports = validateDOMNesting;
-},{"./Object.assign":49,"fbjs/lib/emptyFunction":8,"fbjs/lib/warning":27}],"react":[function(require,module,exports){
+},{"./Object.assign":49,"fbjs/lib/emptyFunction":8,"fbjs/lib/warning":27}],"react-dom":[function(require,module,exports){
+'use strict';
+
+module.exports = require('react/lib/ReactDOM');
+
+},{"react/lib/ReactDOM":62}],"react":[function(require,module,exports){
 'use strict';
 
 module.exports = require('./lib/React');

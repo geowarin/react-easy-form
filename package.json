@@ -41,9 +41,5 @@
     "start": "gulp dev",
     "test": "echo \"no tests yet\" && exit 0",
     "watch": "gulp watch:lib"
-  },
-  "keywords": [
-    "react",
-    "react-component"
-  ]
+  }
 }

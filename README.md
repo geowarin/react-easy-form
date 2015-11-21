@@ -2,12 +2,14 @@
 
 [![npm](https://img.shields.io/npm/v/react-easy-form.svg)](https://www.npmjs.com/package/react-easy-form)
 [![Dependency Status](https://img.shields.io/david/geowarin/react-easy-form.svg)](https://david-dm.org/geowarin/react-easy-form)
-[![devDependency Status](https://img.shields.io/david/dev/geowarin/react-easy-form.svg)](https://david-dm.org/geowarin/react-easy-form)
+[![devDependency Status](https://img.shields.io/david/dev/geowarin/react-easy-form.svg)](https://david-dm.org/geowarin/react-easy-form#info=devDependencies)
 
 Easy forms for react 0.14+.
+
 It uses React's context to allow form component to automatically update the
 form state.
-It natively uses HTML5 form validation.
+
+Supports HTML5 form validation.
 
 ## Demo & Examples
 
@@ -39,9 +41,9 @@ npm install react-easy-form --save
 ### Simple usage
 
 ```javascript
-var React = require('react');
-var ReactDOM = require('react-dom');
-const {Form, TextInput, Checkbox, Select} = require('react-easy-form');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {Form, TextInput, Checkbox, Select, Label} from 'react-easy-form';
 
 const values = ['1', '2', '3'];
 const valuesMap = {
@@ -56,8 +58,7 @@ const initialData = {
 	selectMap: '2'
 };
 
-const App = () => {
-	return (
+const App = () => (
 			<Form initialData={initialData} onSubmit={(data) => console.log(data)}>
 
 				<TextInput name="firstName" required/>
@@ -79,7 +80,6 @@ const App = () => {
 				<button type="submit">Submit</button>
 			</Form>
 	);
-}
 
 ReactDOM.render(<App />, document.getElementById('app'));
 ```
@@ -99,29 +99,24 @@ const initialData = {
 	select: '2'
 };
 
-const LabeledInput = (props) => {
-	return (
+const LabeledInput = (props) => (
 		<div className="pure-control-group">
 			<Label value={props.label} position="before">
 				<TextInput {...props}/>
 			</Label>
 		</div>
 	)
-}
 
-const LabeledSelect = (props) => {
-	return (
+const LabeledSelect = (props) => (
 		<div className="pure-control-group">
 			<Label value={props.label} position="before">
 				<Select {...props}/>
 			</Label>
 		</div>
 	)
-}
 
 
-const App = () => {
-	return (
+const App = () => (
 			<Form className="pure-form pure-form-aligned" initialData={initialData}
 					onSubmit={(data) => console.log(data)}>
 
@@ -145,7 +140,6 @@ const App = () => {
 				</fieldset>
 			</Form>
 		);
-}
 
 ReactDOM.render(<App />, document.getElementById('app'));
 ```

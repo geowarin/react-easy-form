@@ -1,6 +1,6 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-const {Form, TextInput, Checkbox, Select, Label} = require('react-easy-form');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {Form, TextInput, Checkbox, Select, Label} from 'react-easy-form';
 
 const values = ['1', '2', '3'];
 const valuesMap = {
@@ -15,30 +15,25 @@ const initialData = {
 	selectMap: '2'
 };
 
-const LabeledInput = (props) => {
-	return (
+const LabeledInput = (props) => (
 		<div className="pure-control-group">
 			<Label value={props.label} position="before">
 				<TextInput {...props}/>
 			</Label>
 		</div>);
-};
 
-const LabeledSelect = (props) => {
-	return (
+const LabeledSelect = (props) => (
 		<div className="pure-control-group">
 			<Label value={props.label} position="before">
 				<Select {...props}/>
 			</Label>
 		</div>);
-};
 
-const App = () => {
-	return (
+const App = () => (
 		<Form className="pure-form pure-form-aligned" initialData={initialData} onSubmit={(data) => console.log(data)}>
 			<fieldset>
 				<LabeledInput label="First Name" name="firstName" required/>
-	<LabeledInput label="E-mail" placeholder="Enter your email" name="email" type="email" required/>
+				<LabeledInput label="E-mail" placeholder="Enter your email" name="email" type="email" required/>
 
 				<LabeledInput label="Country code" name="country" required
 											pattern="[A-Za-z]{3}" title="Three letter country code" />
@@ -56,6 +51,5 @@ const App = () => {
 			</fieldset>
 		</Form>
 	);
-};
 
 ReactDOM.render(<App />, document.getElementById('app'));

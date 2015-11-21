@@ -3,7 +3,7 @@ import getNextId from './getNextId';
 
 const isEmpty = (obj) => {
   return Object.keys(obj).length === 0;
-}
+};
 
 class Select extends React.Component {
 
@@ -28,13 +28,12 @@ class Select extends React.Component {
     };
 
     const {values} = this.props;
-    let options = null;
+    let options = [];
     if (Array.isArray(values)) {
       options = values.map((value, index) => {
 	       return (<option key={index} value={value}>{value}</option>);
       });
     } else {
-			options = [];
 			const keys = Object.keys(values);
 			for (let key of keys) {
 				const value = values[key];

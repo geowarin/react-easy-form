@@ -89,9 +89,9 @@ ReactDOM.render(<App />, document.getElementById('app'));
 The following example uses [Pure forms](http://purecss.io/)
 
 ```javascript
-var React = require('react');
-var ReactDOM = require('react-dom');
-const {Form, TextInput, Checkbox, Select, Label} = require('react-easy-form');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {Form, TextInput, Checkbox, Select, Label} from 'react-easy-form';
 
 const values = ['1', '2', '3'];
 const initialData = {
@@ -105,7 +105,7 @@ const LabeledInput = (props) => (
 				<TextInput {...props}/>
 			</Label>
 		</div>
-	)
+	);
 
 const LabeledSelect = (props) => (
 		<div className="pure-control-group">
@@ -113,7 +113,7 @@ const LabeledSelect = (props) => (
 				<Select {...props}/>
 			</Label>
 		</div>
-	)
+	);
 
 
 const App = () => (

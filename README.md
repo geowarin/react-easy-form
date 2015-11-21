@@ -1,7 +1,8 @@
 # react-easy-form
 
-[![Dependency Status](https://david-dm.org/geowarin/react-easy-form.svg)](https://david-dm.org/geowarin/react-easy-form)
-[![devDependency Status](https://david-dm.org/geowarin/react-easy-form/dev-status.svg)](https://david-dm.org/geowarin/react-easy-form#info=devDependencies)
+[![npm](https://img.shields.io/npm/v/react-easy-form.svg)](https://www.npmjs.com/package/react-easy-form)
+[![Dependency Status](https://img.shields.io/david/geowarin/react-easy-form.svg)](https://david-dm.org/geowarin/react-easy-form)
+[![devDependency Status](https://img.shields.io/david/dev/geowarin/react-easy-form)](https://david-dm.org/geowarin/react-easy-form)
 
 Easy forms for react 0.14+.
 It uses React's context to allow form component to automatically update the

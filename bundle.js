@@ -406,7 +406,7 @@ var Select = (function (_React$Component) {
 
       var values = this.props.values;
 
-      var options = null;
+      var options = [];
       if (Array.isArray(values)) {
         options = values.map(function (value, index) {
           return _react2['default'].createElement(
@@ -416,7 +416,6 @@ var Select = (function (_React$Component) {
           );
         });
       } else {
-        options = [];
         var keys = Object.keys(values);
         var _iteratorNormalCompletion = true;
         var _didIteratorError = false;

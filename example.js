@@ -1,16 +1,17 @@
 require=(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
 
-var React = require('react');
-var ReactDOM = require('react-dom');
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var _require = require('react-easy-form');
+var _react = require('react');
 
-var Form = _require.Form;
-var TextInput = _require.TextInput;
-var Checkbox = _require.Checkbox;
-var Select = _require.Select;
-var Label = _require.Label;
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = require('react-dom');
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _reactEasyForm = require('react-easy-form');
 
 var values = ['1', '2', '3'];
 var valuesMap = {
@@ -26,54 +27,54 @@ var initialData = {
 };
 
 var LabeledInput = function LabeledInput(props) {
-	return React.createElement(
+	return _react2['default'].createElement(
 		'div',
 		{ className: 'pure-control-group' },
-		React.createElement(
-			Label,
+		_react2['default'].createElement(
+			_reactEasyForm.Label,
 			{ value: props.label, position: 'before' },
-			React.createElement(TextInput, props)
+			_react2['default'].createElement(_reactEasyForm.TextInput, props)
 		)
 	);
 };
 
 var LabeledSelect = function LabeledSelect(props) {
-	return React.createElement(
+	return _react2['default'].createElement(
 		'div',
 		{ className: 'pure-control-group' },
-		React.createElement(
-			Label,
+		_react2['default'].createElement(
+			_reactEasyForm.Label,
 			{ value: props.label, position: 'before' },
-			React.createElement(Select, props)
+			_react2['default'].createElement(_reactEasyForm.Select, props)
 		)
 	);
 };
 
 var App = function App() {
-	return React.createElement(
-		Form,
+	return _react2['default'].createElement(
+		_reactEasyForm.Form,
 		{ className: 'pure-form pure-form-aligned', initialData: initialData, onSubmit: function (data) {
 				return console.log(data);
 			} },
-		React.createElement(
+		_react2['default'].createElement(
 			'fieldset',
 			null,
-			React.createElement(LabeledInput, { label: 'First Name', name: 'firstName', required: true }),
-			React.createElement(LabeledInput, { label: 'E-mail', placeholder: 'Enter your email', name: 'email', type: 'email', required: true }),
-			React.createElement(LabeledInput, { label: 'Country code', name: 'country', required: true,
+			_react2['default'].createElement(LabeledInput, { label: 'First Name', name: 'firstName', required: true }),
+			_react2['default'].createElement(LabeledInput, { label: 'E-mail', placeholder: 'Enter your email', name: 'email', type: 'email', required: true }),
+			_react2['default'].createElement(LabeledInput, { label: 'Country code', name: 'country', required: true,
 				pattern: '[A-Za-z]{3}', title: 'Three letter country code' }),
-			React.createElement(LabeledSelect, { label: 'Select from array', name: 'select', values: values }),
-			React.createElement(LabeledSelect, { label: 'Select from object', name: 'selectMap', values: valuesMap }),
-			React.createElement(
+			_react2['default'].createElement(LabeledSelect, { label: 'Select from array', name: 'select', values: values }),
+			_react2['default'].createElement(LabeledSelect, { label: 'Select from object', name: 'selectMap', values: valuesMap }),
+			_react2['default'].createElement(
 				'div',
 				{ className: 'pure-controls' },
-				React.createElement(
-					Label,
+				_react2['default'].createElement(
+					_reactEasyForm.Label,
 					{ className: 'pure-checkbox' },
-					React.createElement(Checkbox, { name: 'agree', title: 'Accept TOS', required: true }),
+					_react2['default'].createElement(_reactEasyForm.Checkbox, { name: 'agree', title: 'Accept TOS', required: true }),
 					' Agree'
 				),
-				React.createElement(
+				_react2['default'].createElement(
 					'button',
 					{ className: 'pure-button pure-button-primary', type: 'submit' },
 					'Submit'
@@ -83,6 +84,6 @@ var App = function App() {
 	);
 };
 
-ReactDOM.render(React.createElement(App, null), document.getElementById('app'));
+_reactDom2['default'].render(_react2['default'].createElement(App, null), document.getElementById('app'));
 
 },{"react":undefined,"react-dom":undefined,"react-easy-form":undefined}]},{},[1]);

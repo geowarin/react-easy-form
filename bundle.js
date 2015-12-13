@@ -189,6 +189,13 @@ var Form = (function (_React$Component) {
       return false;
     }
   }, {
+    key: 'clear',
+    value: function clear() {
+      this.setState({
+        formData: {}
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2['default'].createElement(

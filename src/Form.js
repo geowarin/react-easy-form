@@ -46,6 +46,12 @@ class Form extends React.Component {
     return false;
   }
 
+  clear() {
+    this.setState({
+      formData: {}
+    });
+  }
+
   render() {
     return (
       <form ref="form" className={this.props.className} onSubmit={this.onSubmit}>
